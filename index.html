@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة مضمون لخدمات رجال الأعمال وتخليص المعاملات | MADMON Business Services - العين، أبوظبي</title>
+    
+    <!-- Google Fonts: Cairo & Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Three.js CDN للخلفية ثلاثية الأبعاد (أوراق وملفات وأموال متطايرة) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0B0E',
+                        charcoalDark: '#12141A',
+                        charcoalCard: '#181B23',
+                        madmonOrange: '#F26500',
+                        madmonOrangeLight: '#FF8A33',
+                        madmonOrangeDark: '#C24D00',
+                        madmonBlack: '#1E1E1E',
+                        pureWhite: '#FFFFFF',
+                        silverMuted: '#A1A8B8'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'orange-glow': '0 0 35px rgba(242, 101, 0, 0.38)',
+                        'orange-intense': '0 0 60px rgba(242, 101, 0, 0.55)',
+                        'white-soft': '0 0 25px rgba(255, 255, 255, 0.14)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background-color: #0A0B0E;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* شريط التمرير بألوان الشعار (برتقالي وفحمي) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0B0E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #F26500, #2A2D36);
+            border-radius: 4px;
+        }
+
+        /* تدرج لوني مستوحى من شعار MADMON */
+        .text-gradient-madmon {
+            background: linear-gradient(135deg, #FF9E54 0%, #F26500 55%, #D95300 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* أسلوب عرض مدمج وانسيابي مع الخلفية ثلاثية الأبعاد بدون قوالب جامدة */
+        .floating-surface {
+            background: linear-gradient(145deg, rgba(24, 27, 35, 0.58) 0%, rgba(12, 14, 19, 0.42) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-right: 2px solid rgba(242, 101, 0, 0.45);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .floating-surface:hover {
+            transform: translateY(-6px);
+            border-right-color: #F26500;
+            box-shadow: 0 18px 40px -12px rgba(242, 101, 0, 0.25);
+        }
+
+        /* إضاءات محيطية خفيفة بألوان الشعار */
+        .ambient-orb {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(95px);
+            animation: orbFloat 16s ease-in-out infinite alternate;
+        }
+
+        @keyframes orbFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -35px) scale(1.1); }
+            100% { transform: translate(-20px, 20px) scale(0.96); }
+        }
+
+        /* أيقونات سداسية/ماسية مبتكرة مختلفة تماماً عن الأيقونات التقليدية */
+        .diamond-icon-wrap {
+            position: relative;
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(242, 101, 0, 0.22), rgba(30, 30, 30, 0.85));
+            border: 1.5px solid rgba(242, 101, 0, 0.65);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            transition: transform 0.4s ease, background 0.4s ease;
+        }
+        .group:hover .diamond-icon-wrap {
+            transform: rotate(15deg) scale(1.1);
+            background: linear-gradient(135deg, #F26500, #B84700);
+        }
+        .group:hover .diamond-icon-wrap i {
+            color: #FFFFFF !important;
+            transform: rotate(-15deg);
+        }
+        .diamond-icon-wrap i {
+            transition: transform 0.4s ease, color 0.3s ease;
+        }
+
+        /* تأثير الشعار الدائري في الهيدر والفوتر */
+        @keyframes rippleOrange {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            100% { transform: scale(1.65); opacity: 0; }
+        }
+        @keyframes spinAura {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .logo-madmon-ring {
+            border-radius: 9999px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 28px rgba(242, 101, 0, 0.5);
+        }
+        .logo-madmon-ring::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 9999px;
+            background: conic-gradient(from 0deg, #F26500, transparent 40%, #FFFFFF 65%, transparent 85%, #F26500);
+            animation: spinAura 7s linear infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .logo-madmon-ring::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 9999px;
+            border: 2px solid rgba(242, 101, 0, 0.7);
+            animation: rippleOrange 2.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+            pointer-events: none;
+        }
+
+        /* أيقونة الواتساب العائمة بموجات برتقالية وخضراء */
+        .whatsapp-madmon-float {
+            border-radius: 9999px;
+            position: fixed;
+            background: radial-gradient(circle at 30% 25%, #3CE679, #25D366 65%, #128C7E);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45), 0 0 22px rgba(242, 101, 0, 0.35);
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-madmon-float::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            border: 2px solid rgba(242, 101, 0, 0.85);
+            animation: rippleOrange 2.3s ease-out infinite;
+            pointer-events: none;
+        }
+        .whatsapp-madmon-float:hover {
+            transform: scale(1.12);
+        }
+
+        /* حركات الظهور الانسيابية مع التمرير */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+        }
+        .reveal-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-madmonOrange selection:text-white">
+
+    <!-- =========================================================================
+         3D BACKGROUND CANVAS: أوراق رسمية، ملفات شركات، وأموال تتطاير في الفضاء
+         ========================================================================= -->
+    <div id="three-business-flying-canvas" class="fixed inset-0 w-full h-full pointer-events-none" style="z-index: 1;" aria-hidden="true"></div>
+
+    <!-- Ambient Glow Orbs بألوان الشعار (برتقالي وفحمي) -->
+    <div class="ambient-orb top-16 right-12 w-[420px] h-[420px] bg-madmonOrange/15"></div>
+    <div class="ambient-orb bottom-12 left-12 w-[400px] h-[400px] bg-white/5" style="animation-delay: -7s;"></div>
+
+    <!-- شريط تقدم التمرير العلوي -->
+    <div class="fixed top-0 inset-x-0 h-1 z-[60] bg-white/5">
+        <div id="scroll-progress-bar" class="h-full bg-gradient-to-l from-madmonOrange via-madmonOrangeLight to-white w-0 transition-all duration-150"></div>
+    </div>
+
+    <!-- =========================================================================
+         HEADER & NAVIGATION BAR (تم تعديل الشعار ليملأ الدائرة بالكامل)
+         ========================================================================= -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 py-4 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between bg-obsidian/70 backdrop-blur-md border-b border-madmonOrange/30">
+            
+            <!-- هوية العلامة التجارية MADMON (الشعار يملأ الدائرة بالكامل بدون حواف مربعة) -->
+            <a href="#home" class="flex items-center gap-3.5 group">
+                <div class="relative w-[68px] h-[68px] rounded-full overflow-hidden border-2 border-madmonOrange logo-madmon-ring bg-white shrink-0">
+                    <img src="img/logo.jpg" 
+                         onerror="this.src='https://placehold.co/140x140/FFFFFF/F26500?text=MADMON'" 
+                         alt="شعار شركة مضمون MADMON" 
+                         class="w-full h-full object-cover scale-110 rounded-full group-hover:scale-125 transition-transform duration-500">
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xl sm:text-2xl font-black text-white tracking-wide group-hover:text-madmonOrangeLight transition-colors">مضمون</span>
+                        <span class="text-xs sm:text-sm font-black px-2 py-0.5 bg-madmonOrange text-white tracking-widest uppercase">MADMON</span>
+                    </div>
+                    <span class="text-[11px] font-bold text-silverMuted tracking-wider font-tajawal mt-0.5">لتأسيس الشركات وتخليص المعاملات • العين</span>
+                </div>
+            </a>
+
+            <!-- روابط التنقل لسطح المكتب -->
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-bold text-slate-200">
+                <a href="#home" class="hover:text-madmonOrangeLight transition-colors">الرئيسية</a>
+                <a href="#services" class="hover:text-madmonOrangeLight transition-colors">خدمات التأسيس</a>
+                <a href="#workflow" class="hover:text-madmonOrangeLight transition-colors">مسار الإنجاز</a>
+                <a href="#why-madmon" class="hover:text-madmonOrangeLight transition-colors">لماذا مضمون</a>
+                <a href="#contact" class="hover:text-madmonOrangeLight transition-colors">التواصل والموقع</a>
+            </nav>
+
+            <!-- زر التواصل المباشر وزر القائمة للجوال -->
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-madmonOrange hover:bg-madmonOrangeLight text-white font-extrabold text-xs transition-all transform hover:-translate-y-0.5 shadow-orange-glow">
+                    <i class="fa-solid fa-handshake-angle text-sm"></i>
+                    <span>ابدأ معاملتك الآن</span>
+                </a>
+
+                <button id="mobile-menu-btn" aria-label="القائمة" class="lg:hidden w-11 h-11 rounded-full border border-madmonOrange/70 bg-charcoalDark/90 text-madmonOrangeLight flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- قائمة الجوال المنسدلة -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-2 max-w-7xl mx-auto bg-charcoalDark/95 backdrop-blur-xl p-5 border border-madmonOrange/40 space-y-3 font-bold text-sm text-white">
+            <a href="#home" class="mobile-link block py-2 px-3 hover:text-madmonOrangeLight">الرئيسية</a>
+            <a href="#services" class="mobile-link block py-2 px-3 hover:text-madmonOrangeLight">خدمات تأسيس الشركات والمعاملات</a>
+            <a href="#workflow" class="mobile-link block py-2 px-3 hover:text-madmonOrangeLight">خطوات إنجاز معاملاتكم</a>
+            <a href="#why-madmon" class="mobile-link block py-2 px-3 hover:text-madmonOrangeLight">لماذا تختار مضمون</a>
+            <a href="#contact" class="mobile-link block py-2 px-3 hover:text-madmonOrangeLight">تواصل معنا وموقعنا في العين</a>
+            <a href="https://wa.me/971542868707" target="_blank" rel="noopener noreferrer" class="block w-full py-3 text-center bg-[#25D366] text-obsidian font-black mt-2">
+                <i class="fa-brands fa-whatsapp text-lg ml-2"></i> تواصل عبر واتساب مضمون مباشرة
+            </a>
+        </div>
+    </header>
+
+    <!-- =========================================================================
+         HERO SECTION: الحفاظ على الشعار الكبير في الواجهة كما هو
+         ========================================================================= -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-4 sm:px-8 overflow-hidden z-10">
+        <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-20">
+            
+            <!-- الجانب الأيمن: النصوص التعريفية والنداء لاتخاذ إجراء (7 أعمدة) -->
+            <div class="lg:col-span-7 text-right space-y-6 reveal-item">
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 bg-madmonOrange/15 border-r-4 border-madmonOrange text-madmonOrangeLight text-xs sm:text-sm font-extrabold">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>شريكك المعتمد لتأسيس الأعمال وتخليص المعاملات في الإمارات</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.22]">
+                    انطلق بأعمالك بثقة مع <span class="text-gradient-madmon">مضمون MADMON</span>
+                </h1>
+
+                <p class="text-slate-200 text-base sm:text-lg leading-relaxed font-tajawal max-w-2xl">
+                    نختصر عليك الوقت والإجراءات؛ نتولى عنك <strong class="text-madmonOrangeLight">تأسيس الشركات واستخراج الرخص التجارية</strong>، فتح الملفات الضريبية، فتح الحسابات البنكية للشركات، وتخليص جميع معاملات الإقامة والجهات الحكومية بدقة وسرعة تامة.
+                </p>
+
+                <!-- أزرار الحركة -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                    <a href="https://wa.me/971542868707" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-madmonOrange hover:bg-madmonOrangeLight text-white font-black text-base transition-all transform hover:-translate-y-1 shadow-orange-glow flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>استشارة فورية عبر واتساب</span>
+                    </a>
+                    <a href="#services" class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 hover:border-madmonOrange text-white font-extrabold text-base transition-all flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-folder-open text-madmonOrangeLight"></i>
+                        <span>استعرض باقات الخدمات</span>
+                    </a>
+                </div>
+
+                <!-- مؤشرات الأداء السريعة -->
+                <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-black text-madmonOrangeLight">100%</div>
+                        <div class="text-xs text-silverMuted font-tajawal mt-1">إنجاز قانوني ومعتمد</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-black text-white">شامل</div>
+                        <div class="text-xs text-silverMuted font-tajawal mt-1">تأسيس، ضرائب، بنوك، إقامات</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-black text-madmonOrangeLight">العين</div>
+                        <div class="text-xs text-silverMuted font-tajawal mt-1">مقرنا الرئيسي في أبوظبي</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الجانب الأيسر: الشعار الكبير في الواجهة محفوظ كما هو بالكامل (5 أعمدة) -->
+            <div class="lg:col-span-5 flex flex-col items-center justify-center reveal-item" style="transition-delay: 0.2s;">
+                <div class="relative w-full max-w-md p-6 sm:p-8 bg-white rounded-3xl shadow-orange-intense border-4 border-madmonOrange/80 transform hover:scale-[1.02] transition-transform duration-500">
+                    <!-- شارة زاوية -->
+                    <span class="absolute -top-4 right-6 px-4 py-1 bg-madmonBlack text-madmonOrangeLight text-xs font-black tracking-wider border border-madmonOrange">
+                        اختيارك المضمون 100%
+                    </span>
+                    <img src="img/logo.jpg" 
+                         onerror="this.style.display='none'; document.getElementById('madmon-fallback-card').style.display='flex';" 
+                         alt="شعار شركة مضمون MADMON" 
+                         class="w-full h-auto max-h-72 object-contain mx-auto">
+                    
+                    <!-- شعار احتياطي في حال عدم وجود الملف المحلي -->
+                    <div id="madmon-fallback-card" style="display:none;" class="flex-col items-center justify-center py-8 text-center">
+                        <span class="text-5xl font-black tracking-wider text-madmonBlack">MAD<span class="text-madmonOrange">MON</span></span>
+                        <span class="text-2xl font-black text-madmonOrange mt-2">— مضمون —</span>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-slate-200 flex items-center justify-between text-madmonBlack text-xs font-extrabold">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-building-shield text-madmonOrange"></i> تأسيس شركات</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-file-invoice-dollar text-madmonOrange"></i> ضرائب وبنوك</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-passport text-madmonOrange"></i> إقامات</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         CORE SERVICES SECTION: طريقة عرض انسيابية متدرجة لكل خدمات مضمون
+         ========================================================================= -->
+    <section id="services" class="relative py-24 px-4 sm:px-8 z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 reveal-item">
+                <div>
+                    <span class="text-xs font-extrabold tracking-widest uppercase text-madmonOrangeLight">
+                        حلول متكاملة لرواد الأعمال والمستثمرين
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white mt-2">
+                        خدمات <span class="text-gradient-madmon">مضمون</span> الأساسية
+                    </h2>
+                </div>
+                <p class="max-w-md text-silverMuted text-sm font-tajawal leading-relaxed">
+                    نوفر لك مظلة متكاملة من الخدمات الإدارية والقانونية والمالية لتبدأ وتدير شركتك في دولة الإمارات دون أي تعقيدات.
+                </p>
+            </div>
+
+            <!-- شبكة الخدمات بتصميم غير تقليدي -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                
+                <!-- 1. فتح وتأسيس الشركات -->
+                <div class="floating-surface p-8 group reveal-item">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="diamond-icon-wrap">
+                            <i class="fa-solid fa-city text-madmonOrangeLight text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-black text-white/10 group-hover:text-madmonOrange/30 transition-colors">01</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3">فتح وتأسيس الشركات</h3>
+                    <p class="text-silverMuted text-sm font-tajawal leading-relaxed mb-5">
+                        إصدار وتجديد الرخص التجارية والمهنية والصناعية، حجز الأسماء التجارية، وصياغة عقود التأسيس وملاحق الشركاء.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300 font-tajawal border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> رخص البر الرئيسي والمناطق الحرة</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> تعديل الأنشطة وإضافة أو تخارج الشركاء</li>
+                    </ul>
+                </div>
+
+                <!-- 2. فتح الملفات الضريبية -->
+                <div class="floating-surface p-8 group reveal-item" style="transition-delay: 0.1s;">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="diamond-icon-wrap">
+                            <i class="fa-solid fa-file-invoice-dollar text-madmonOrangeLight text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-black text-white/10 group-hover:text-madmonOrange/30 transition-colors">02</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3">فتح الملفات الضريبية</h3>
+                    <p class="text-silverMuted text-sm font-tajawal leading-relaxed mb-5">
+                        التسجيل لدى الهيئة الاتحادية للضرائب، استخراج الرقم الضريبي (TRN)، وتسجيل ضريبة الشركات وضريبة القيمة المضافة.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300 font-tajawal border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> تسجيل ضريبة الشركات (Corporate Tax)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> فتح وتحديث ملفات القيمة المضافة (VAT)</li>
+                    </ul>
+                </div>
+
+                <!-- 3. فتح الحسابات البنكية للشركات -->
+                <div class="floating-surface p-8 group reveal-item" style="transition-delay: 0.2s;">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="diamond-icon-wrap">
+                            <i class="fa-solid fa-building-columns text-madmonOrangeLight text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-black text-white/10 group-hover:text-madmonOrange/30 transition-colors">03</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3">فتح الحسابات البنكية</h3>
+                    <p class="text-silverMuted text-sm font-tajawal leading-relaxed mb-5">
+                        تجهيز ملف الامتثال المصرفي والتنسيق المباشر مع كبرى البنوك الإماراتية لفتح حسابات الشركات بسرعة وموثوقية.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300 font-tajawal border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> إعداد ملف الشركة (KYC) وفق متطلبات البنوك</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> متابعة الموافقة حتى تفعيل الحساب</li>
+                    </ul>
+                </div>
+
+                <!-- 4. تخليص أوراق الإقامة والتأشيرات -->
+                <div class="floating-surface p-8 group reveal-item">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="diamond-icon-wrap">
+                            <i class="fa-solid fa-passport text-madmonOrangeLight text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-black text-white/10 group-hover:text-madmonOrange/30 transition-colors">04</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3">تخليص أوراق الإقامة</h3>
+                    <p class="text-silverMuted text-sm font-tajawal leading-relaxed mb-5">
+                        إصدار وتجديد إقامات المستثمرين والشركاء والموظفين والعائلات، والفحص الطبي، وطباعة طلبات الهوية الإماراتية.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300 font-tajawal border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> الإقامة الذهبية وإقامات المستثمرين</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> تصاريح العمل وتعديل الوضع وتجديد الإقامات</li>
+                    </ul>
+                </div>
+
+                <!-- 5. معاملات العمل والعمال -->
+                <div class="floating-surface p-8 group reveal-item" style="transition-delay: 0.1s;">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="diamond-icon-wrap">
+                            <i class="fa-solid fa-id-badge text-madmonOrangeLight text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-black text-white/10 group-hover:text-madmonOrange/30 transition-colors">05</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3">معاملات الموارد البشرية والتوطين</h3>
+                    <p class="text-silverMuted text-sm font-tajawal leading-relaxed mb-5">
+                        فتح بطاقات المنشأة، طلبات الكوتة، عقود العمل المعتمدة، ونظام حماية الأجور (WPS) لكافة الشركات.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300 font-tajawal border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> فتح وتحديث ملف المنشأة والجوازات</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> إدارة عقود الموظفين والتأمين الصحي</li>
+                    </ul>
+                </div>
+
+                <!-- 6. جميع معاملات الشركات والدوائر الحكومية -->
+                <div class="floating-surface p-8 group reveal-item" style="transition-delay: 0.2s;">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="diamond-icon-wrap">
+                            <i class="fa-solid fa-stamp text-madmonOrangeLight text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-black text-white/10 group-hover:text-madmonOrange/30 transition-colors">06</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3">جميع معاملات الشركات</h3>
+                    <p class="text-silverMuted text-sm font-tajawal leading-relaxed mb-5">
+                        تصديق المستندات والوكالات، معاملات البلدية، الدفاع المدني، والغرفة التجارية، ومتابعة كافة الإجراءات الحكومية.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300 font-tajawal border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> تصديق العقود والوثائق الرسمية</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-madmonOrange"></i> باقات متابعة سنوية شاملة للشركات</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         WORKFLOW SECTION: خطوات الإنجاز (مسار أفقي مميز)
+         ========================================================================= -->
+    <section id="workflow" class="relative py-20 px-4 sm:px-8 border-y border-white/10 bg-charcoalDark/40 z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-14 reveal-item">
+                <span class="text-xs font-extrabold tracking-widest uppercase text-madmonOrangeLight">آلية عمل احترافية</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">
+                    كيف نُنجز معاملتك في <span class="text-gradient-madmon">4 خطوات مضمونة</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 border-r-2 border-madmonOrange bg-obsidian/60 reveal-item">
+                    <div class="text-madmonOrange font-black text-sm mb-2">الخطوة الأولى</div>
+                    <h3 class="text-lg font-black text-white mb-2">الاستشارة وتحديد المتطلبات</h3>
+                    <p class="text-xs text-silverMuted font-tajawal leading-relaxed">ندرس نشاطك التجاري أو معاملتك ونحدد لك المسار القانوني الأسرع والأقل تكلفة.</p>
+                </div>
+
+                <div class="p-6 border-r-2 border-madmonOrange bg-obsidian/60 reveal-item" style="transition-delay: 0.1s;">
+                    <div class="text-madmonOrange font-black text-sm mb-2">الخطوة الثانية</div>
+                    <h3 class="text-lg font-black text-white mb-2">تجهيز الملف والمستندات</h3>
+                    <p class="text-xs text-silverMuted font-tajawal leading-relaxed">نستلم أوراقك ونراجعها بدقة لضمان مطابقتها الكاملة لشروط الجهات الحكومية والبنوك.</p>
+                </div>
+
+                <div class="p-6 border-r-2 border-madmonOrange bg-obsidian/60 reveal-item" style="transition-delay: 0.2s;">
+                    <div class="text-madmonOrange font-black text-sm mb-2">الخطوة الثالثة</div>
+                    <h3 class="text-lg font-black text-white mb-2">التقديم والمتابعة الفورية</h3>
+                    <p class="text-xs text-silverMuted font-tajawal leading-relaxed">نباشر الإجراءات عبر القنوات الرسمية مع إطلاعك على كل تحديث لحظة بلحظة.</p>
+                </div>
+
+                <div class="p-6 border-r-2 border-madmonOrange bg-obsidian/60 reveal-item" style="transition-delay: 0.3s;">
+                    <div class="text-madmonOrange font-black text-sm mb-2">الخطوة الرابعة</div>
+                    <h3 class="text-lg font-black text-white mb-2">التسليم الرسمي النهائي</h3>
+                    <p class="text-xs text-silverMuted font-tajawal leading-relaxed">نسلمك رخصتك التجارية، ملفك الضريبي، حسابك البنكي، أو إقامتك جاهزة بالكامل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         WHY MADMON SECTION: لماذا مضمون؟
+         ========================================================================= -->
+    <section id="why-madmon" class="relative py-24 px-4 sm:px-8 z-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 reveal-item">
+                <span class="text-xs font-extrabold tracking-widest uppercase text-madmonOrangeLight">اسم على مسمى</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white mt-3 mb-5 leading-tight">
+                    لماذا يثق رواد الأعمال في <span class="text-gradient-madmon">مضمون</span>؟
+                </h2>
+                <p class="text-silverMuted text-sm sm:text-base font-tajawal leading-relaxed mb-6">
+                    لأننا نؤمن بأن وقت المستثمر هو أغلى ما يملك؛ نعمل في شركة <strong class="text-white">مضمون (MADMON)</strong> كذراع تنفيذي متكامل يحمي أعمالك من التأخير والأخطاء الإجرائية.
+                </p>
+                <a href="https://wa.me/971542868707" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-6 py-3.5 bg-madmonOrange hover:bg-madmonOrangeLight text-white font-black text-sm transition-all">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>تحدث مع مستشار التأسيس الآن</span>
+                </a>
+            </div>
+
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="floating-surface p-6 group reveal-item">
+                    <div class="diamond-icon-wrap mb-4">
+                        <i class="fa-solid fa-gauge-high text-madmonOrangeLight text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-2">سرعة قياسية في الإنجاز</h3>
+                    <p class="text-xs text-silverMuted font-tajawal leading-relaxed">خبرة ميدانية عميقة بالإجراءات الحكومية والمصرفية تختصر أسابيع من الانتظار إلى أيام معدودة.</p>
+                </div>
+
+                <div class="floating-surface p-6 group reveal-item" style="transition-delay: 0.1s;">
+                    <div class="diamond-icon-wrap mb-4">
+                        <i class="fa-solid fa-shield-halved text-madmonOrangeLight text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-2">شفافية ووضوح تام</h3>
+                    <p class="text-xs text-silverMuted font-tajawal leading-relaxed">بيان تفصيلي واضح لكافة الرسوم الحكومية والخطوات قبل البدء دون أي تكاليف مخفية.</p>
+                </div>
+
+                <div class="floating-surface p-6 group reveal-item" style="transition-delay: 0.2s;">
+                    <div class="diamond-icon-wrap mb-4">
+                        <i class="fa-solid fa-user-tie text-madmonOrangeLight text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-2">فريق متخصص ومعتمد</h3>
+                    <p class="text-xs text-silverMuted font-tajawal leading-relaxed">نخبة من المستشارين ومندوبي العلاقات الحكومية ذوي الكفاءة العالية في إمارة أبوظبي والعين.</p>
+                </div>
+
+                <div class="floating-surface p-6 group reveal-item" style="transition-delay: 0.3s;">
+                    <div class="diamond-icon-wrap mb-4">
+                        <i class="fa-solid fa-layer-group text-madmonOrangeLight text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-2">كل خدماتك تحت سقف واحد</h3>
+                    <p class="text-xs text-silverMuted font-tajawal leading-relaxed">من الرخصة التجارية والضرائب إلى الحساب البنكي والإقامات؛ لا حاجة للتنقل بين جهات متعددة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         CONTACT & LOCATION SECTION: روابط info و hr جاهزة للتعديل + واتساب + خريطة العين
+         ========================================================================= -->
+    <section id="contact" class="relative py-24 px-4 sm:px-8 border-t border-white/10 z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-item">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-madmonOrangeLight">
+                    قنوات التواصل الرسمية
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white mt-2">
+                    تواصل مع <span class="text-gradient-madmon">شركة مضمون MADMON</span>
+                </h2>
+                <p class="text-silverMuted text-sm sm:text-base mt-3 font-tajawal">
+                    فريقنا جاهز لاستقبال استفساراتكم وطلبات تأسيس الشركات وتخليص المعاملات في مدينة العين وكافة إمارات الدولة.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-16">
+                
+                <!-- بطاقتا @info و @hr جاهزتان لوضع الروابط الخاصة بك (7 أعمدة) -->
+                <div class="lg:col-span-7 space-y-5 reveal-item">
+                    
+                    <!-- بطاقة @info (ضع الرابط الخاص بك مكان # في خاصية href) -->
+                    <a id="info-custom-link" href="#" 
+                       class="floating-surface p-6 sm:p-7 flex items-center justify-between gap-5 group">
+                        <div class="flex items-center gap-4">
+                            <div dir="ltr" class="diamond-icon-wrap shrink-0 text-white font-black text-xs">
+                                @info
+                            </div>
+                            <div>
+                                <span class="text-xs font-extrabold text-madmonOrangeLight uppercase tracking-wider font-tajawal">الإدارة والاستفسارات وتأسيس الشركات</span>
+                                <h3 class="text-lg sm:text-xl font-black text-white mt-1 flex items-center gap-2">
+                                    <span>التواصل المباشر مع الإدارة (info)</span>
+                                    <i class="fa-solid fa-arrow-up-left-from-square text-xs text-madmonOrangeLight"></i>
+                                </h3>
+                                <p class="text-xs text-silverMuted mt-1 font-tajawal">انقر هنا للتواصل المباشر مع قسم خدمات رجال الأعمال</p>
+                            </div>
+                        </div>
+                        <div class="hidden sm:flex items-center justify-center w-12 h-12 rounded-full border border-madmonOrange/50 text-madmonOrangeLight group-hover:bg-madmonOrange group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-paper-plane text-base"></i>
+                        </div>
+                    </a>
+
+                    <!-- بطاقة @hr (ضع الرابط الخاص بك مكان # في خاصية href) -->
+                    <a id="hr-custom-link" href="#" 
+                       class="floating-surface p-6 sm:p-7 flex items-center justify-between gap-5 group">
+                        <div class="flex items-center gap-4">
+                            <div dir="ltr" class="diamond-icon-wrap shrink-0 text-white font-black text-xs">
+                                @hr
+                            </div>
+                            <div>
+                                <span class="text-xs font-extrabold text-madmonOrangeLight uppercase tracking-wider font-tajawal">قسم الموارد البشرية والتوظيف</span>
+                                <h3 class="text-lg sm:text-xl font-black text-white mt-1 flex items-center gap-2">
+                                    <span>التواصل المباشر للتوظيف (hr)</span>
+                                    <i class="fa-solid fa-arrow-up-left-from-square text-xs text-madmonOrangeLight"></i>
+                                </h3>
+                                <p class="text-xs text-silverMuted mt-1 font-tajawal">انقر هنا للتواصل مع قسم الموارد البشرية وطلبات الانضمام</p>
+                            </div>
+                        </div>
+                        <div class="hidden sm:flex items-center justify-center w-12 h-12 rounded-full border border-madmonOrange/50 text-madmonOrangeLight group-hover:bg-madmonOrange group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-briefcase text-base"></i>
+                        </div>
+                    </a>
+
+                </div>
+
+                <!-- بطاقة الواتساب والاتصال المباشر برقم +971 54 286 8707 (5 أعمدة) -->
+                <div class="lg:col-span-5 reveal-item" style="transition-delay: 0.15s;">
+                    <div class="h-full floating-surface p-8 flex flex-col justify-between border-madmonOrange">
+                        <div>
+                            <span class="text-xs font-extrabold text-madmonOrangeLight tracking-widest uppercase">استجابة سريعة</span>
+                            <h3 class="text-2xl font-black text-white mt-2 mb-3">واتساب واتصال مباشر</h3>
+                            <p class="text-silverMuted text-sm font-tajawal leading-relaxed mb-8">
+                                تواصل مباشرة مع فريق <strong class="text-white">مضمون (MADMON)</strong> لحجز موعد أو إرسال مستنداتك والبدء في معاملتك فوراً.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- زر واتساب -->
+                            <a href="https://wa.me/971542868707" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-5 bg-[#25D366]/15 hover:bg-[#25D366] text-[#25D366] hover:text-obsidian border border-[#25D366] font-black text-sm transition-all flex items-center justify-between group">
+                                <span class="flex items-center gap-3">
+                                    <i class="fa-brands fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i>
+                                    <span>محادثة واتساب فورية</span>
+                                </span>
+                                <span dir="ltr" class="font-bold">+971 54 286 8707</span>
+                            </a>
+
+                            <!-- زر اتصال هاتفي -->
+                            <a href="tel:+971542868707" class="w-full py-4 px-5 bg-madmonOrange/15 hover:bg-madmonOrange text-madmonOrangeLight hover:text-white border border-madmonOrange font-extrabold text-sm transition-all flex items-center justify-between group">
+                                <span class="flex items-center gap-3">
+                                    <i class="fa-solid fa-phone-volume text-xl group-hover:scale-110 transition-transform"></i>
+                                    <span>اتصال هاتفي مباشر</span>
+                                </span>
+                                <span dir="ltr" class="font-bold">+971 54 286 8707</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- خريطة جوجل لمقر الشركة: العين، شعبة الوطاه-١، العين، أبوظبي -->
+            <div id="location" class="floating-surface p-5 sm:p-7 reveal-item">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-5">
+                    <div class="flex items-center gap-3.5">
+                        <div class="diamond-icon-wrap shrink-0">
+                            <i class="fa-solid fa-location-dot text-madmonOrangeLight text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white">موقع مقر شركة مضمون (MADMON)</h3>
+                            <p class="text-xs sm:text-sm text-madmonOrangeLight font-tajawal font-bold mt-0.5">
+                                العين، شعبة الوطاه - ١، العين، أبوظبي، الإمارات العربية المتحدة
+                            </p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=شعبة+الوطاه+1+العين+أبوظبي" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-madmonOrange hover:bg-madmonOrangeLight text-white font-bold text-xs transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-diamond-turn-right"></i>
+                        <span>فتح الموقع في خرائط Google</span>
+                    </a>
+                </div>
+
+                <div class="w-full h-80 sm:h-[400px] overflow-hidden border border-madmonOrange/40">
+                    <iframe 
+                        title="موقع شركة مضمون MADMON - العين، شعبة الوطاه-١، أبوظبي"
+                        src="https://maps.google.com/maps?q=%D8%B4%D8%B9%D8%A8%D8%A9%20%D8%A7%D9%84%D9%88%D8%B7%D8%A7%D9%87%201%20%D8%A7%D9%84%D8%B9%D9%8A%D9%86%20%D8%A3%D8%A8%D9%88%D8%B8%D8%A8%D9%8A&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        class="w-full h-full border-0 filter contrast-110 opacity-95 hover:opacity-100 transition-opacity" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         FOOTER (تم تعديل الشعار ليملأ الدائرة بالكامل)
+         ========================================================================= -->
+    <footer class="relative z-10 bg-obsidian border-t border-madmonOrange/30 pt-14 pb-10 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-white/10">
+                
+                <!-- الشعار والاسم (الشعار يملأ الدائرة بالكامل) -->
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-madmonOrange logo-madmon-ring bg-white shrink-0">
+                        <img src="img/logo.jpg" 
+                             onerror="this.src='https://placehold.co/120x120/FFFFFF/F26500?text=MADMON'" 
+                             alt="شعار مضمون MADMON" 
+                             class="w-full h-full object-cover scale-110 rounded-full">
+                    </div>
+                    <div>
+                        <div class="text-xl font-black text-white">شركة مضمون <span class="text-madmonOrange">MADMON</span></div>
+                        <div class="text-xs font-bold text-silverMuted font-tajawal">لتأسيس الشركات وفتح الملفات الضريبية والحسابات البنكية وتخليص الإقامات</div>
+                    </div>
+                </div>
+
+                <!-- روابط سريعة -->
+                <div class="flex flex-wrap items-center justify-center gap-6 text-sm font-bold text-silverMuted">
+                    <a href="#home" class="hover:text-madmonOrangeLight transition-colors">الرئيسية</a>
+                    <a href="#services" class="hover:text-madmonOrangeLight transition-colors">خدماتنا</a>
+                    <a href="#workflow" class="hover:text-madmonOrangeLight transition-colors">خطوات الإنجاز</a>
+                    <a href="#why-madmon" class="hover:text-madmonOrangeLight transition-colors">لماذا مضمون</a>
+                    <a href="#contact" class="hover:text-madmonOrangeLight transition-colors">تواصل معنا</a>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-silverMuted">
+                <p class="font-bold text-slate-300 font-tajawal">
+                    © 2026 شركة مضمون (MADMON Business Services) • جميع الحقوق محفوظة
+                </p>
+                <p class="font-tajawal">
+                    العين، شعبة الوطاه - ١، العين، أبوظبي | واتساب: <span dir="ltr" class="font-bold text-madmonOrangeLight">+971 54 286 8707</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر واتساب العائم -->
+    <a href="https://wa.me/971542868707" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="تواصل مع مضمون عبر واتساب"
+       class="whatsapp-madmon-float fixed bottom-6 left-6 z-50 w-14 h-14 sm:w-16 sm:h-16 text-white flex items-center justify-center group">
+        <i class="fa-brands fa-whatsapp text-3xl sm:text-4xl"></i>
+        <span class="hidden sm:block absolute left-20 whitespace-nowrap bg-charcoalDark text-white text-xs font-bold px-3.5 py-2 border border-madmonOrange opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg font-tajawal">
+            تواصل مع مضمون عبر واتساب
+        </span>
+    </a>
+
+    <!-- =========================================================================
+         3D ENGINE: خلفية ثري دي ماكس يتطاير فيها أوراق رسمية وملفات شركات وأموال
+         ========================================================================= -->
+    <script>
+        /**
+         * إنشاء خامة (Texture) واقعية للأوراق الرسمية والعقود المختومة
+         */
+        function createDocumentTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 256;
+            canvas.height = 340;
+            const ctx = canvas.getContext('2d');
+
+            // خلفية الورقة البيضاء الدافئة
+            ctx.fillStyle = '#F8F9FA';
+            ctx.fillRect(0, 0, 256, 340);
+
+            // شريط علوي برتقالي بشعار MADMON
+            ctx.fillStyle = '#F26500';
+            ctx.fillRect(0, 0, 256, 26);
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = 'bold 14px Arial';
+            ctx.fillText('MADMON • مضمون', 18, 18);
+
+            // سطور نصية تحاكي العقود والرخص
+            ctx.fillStyle = '#CBD5E1';
+            for (let y = 52; y < 250; y += 22) {
+                const lineWidth = (y % 44 === 0) ? 160 : 210;
+                ctx.fillRect(22, y, lineWidth, 7);
+            }
+
+            // ختم رسمي برتقالي دائري في أسفل الورقة
+            ctx.strokeStyle = '#F26500';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.arc(190, 285, 28, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.fillStyle = '#F26500';
+            ctx.font = 'bold 11px Arial';
+            ctx.fillText('APPROVED', 161, 289);
+
+            return new THREE.CanvasTexture(canvas);
+        }
+
+        /**
+         * إنشاء خامة للأوراق المالية (Banknotes)
+         */
+        function createBanknoteTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 320;
+            canvas.height = 150;
+            const ctx = canvas.getContext('2d');
+
+            // تدرج أخضر/ذهبي فاخر للعملة الورقية
+            const grad = ctx.createLinearGradient(0, 0, 320, 150);
+            grad.addColorStop(0, '#1B4332');
+            grad.addColorStop(0.5, '#2D6A4F');
+            grad.addColorStop(1, '#1B4332');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 320, 150);
+
+            // إطار داخلي مزخرف
+            ctx.strokeStyle = '#D8F3DC';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(12, 12, 296, 126);
+
+            // دائرة وسطية وعلامة مالية
+            ctx.fillStyle = 'rgba(216, 243, 220, 0.22)';
+            ctx.beginPath();
+            ctx.arc(160, 75, 42, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#F26500';
+            ctx.font = 'bold 28px Arial';
+            ctx.fillText('AED 1000', 98, 85);
+
+            return new THREE.CanvasTexture(canvas);
+        }
+
+        /**
+         * تهيئة المشهد ثلاثي الأبعاد (3D Flying Papers, Folders & Money)
+         */
+        function init3DFlyingBusinessScene() {
+            const container = document.getElementById('three-business-flying-canvas');
+            if (!container || typeof THREE === 'undefined') return;
+
+            try {
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 160);
+                camera.position.set(0, 0, 26);
+
+                const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                container.appendChild(renderer.domElement);
+
+                // إضاءة ثلاثية الأبعاد لإبراز عمق الملفات والأوراق والأموال
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+                scene.add(ambientLight);
+
+                const orangePoint = new THREE.PointLight(0xF26500, 2.2, 80);
+                orangePoint.position.set(12, 10, 18);
+                scene.add(orangePoint);
+
+                const whitePoint = new THREE.PointLight(0xffffff, 1.5, 80);
+                whitePoint.position.set(-14, -8, 16);
+                scene.add(whitePoint);
+
+                const docTexture = createDocumentTexture();
+                const moneyTexture = createBanknoteTexture();
+
+                const docMat = new THREE.MeshStandardMaterial({
+                    map: docTexture,
+                    side: THREE.DoubleSide,
+                    roughness: 0.55,
+                    metalness: 0.05
+                });
+
+                const moneyMat = new THREE.MeshStandardMaterial({
+                    map: moneyTexture,
+                    side: THREE.DoubleSide,
+                    roughness: 0.45,
+                    metalness: 0.15
+                });
+
+                // خامات ملفات الشركات (Folders بألوان الشعار: البرتقالي والفحمي الداكن)
+                const folderOrangeMat = new THREE.MeshStandardMaterial({
+                    color: 0xF26500,
+                    roughness: 0.35,
+                    metalness: 0.25
+                });
+                const folderDarkMat = new THREE.MeshStandardMaterial({
+                    color: 0x22252E,
+                    roughness: 0.4,
+                    metalness: 0.35
+                });
+                const coinGoldMat = new THREE.MeshStandardMaterial({
+                    color: 0xF59E0B,
+                    emissive: 0x78350F,
+                    emissiveIntensity: 0.25,
+                    roughness: 0.2,
+                    metalness: 0.9
+                });
+
+                const flyingItems = [];
+
+                // دالة مساعدة لإنشاء ملف شركات ثلاثي الأبعاد يحتوي بداخلها ورقة بيضاء
+                function create3DFolder(isOrange) {
+                    const folderGroup = new THREE.Group();
+                    const coverMat = isOrange ? folderOrangeMat : folderDarkMat;
+
+                    // الغلاف الخلفي للملف
+                    const backCover = new THREE.Mesh(new THREE.BoxGeometry(2.1, 2.7, 0.06), coverMat);
+                    folderGroup.add(backCover);
+
+                    // لسان الملف العلوي (Tab)
+                    const tab = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.28, 0.06), coverMat);
+                    tab.position.set(-0.55, 1.45, 0);
+                    folderGroup.add(tab);
+
+                    // ورقة بيضاء بارزة من داخل الملف
+                    const innerPaper = new THREE.Mesh(new THREE.PlaneGeometry(1.85, 2.45), docMat);
+                    innerPaper.position.set(0.06, 0.08, 0.06);
+                    innerPaper.rotation.z = -0.06;
+                    folderGroup.add(innerPaper);
+
+                    // الغلاف الأمامي المفتوح بزاوية ثلاثية الأبعاد
+                    const frontCover = new THREE.Mesh(new THREE.BoxGeometry(2.1, 2.65, 0.05), coverMat);
+                    frontCover.position.set(0, -0.02, 0.18);
+                    frontCover.rotation.x = 0.14;
+                    folderGroup.add(frontCover);
+
+                    return folderGroup;
+                }
+
+                // 1. توليد 16 ورقة رسمية وعقود تتطاير بنعومة
+                for (let i = 0; i < 16; i++) {
+                    const paper = new THREE.Mesh(new THREE.PlaneGeometry(1.65, 2.2), docMat);
+                    paper.position.set(
+                        (Math.random() - 0.5) * 38,
+                        (Math.random() - 0.5) * 26,
+                        (Math.random() - 0.5) * 16 - 4
+                    );
+                    paper.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+                    scene.add(paper);
+                    flyingItems.push({
+                        mesh: paper,
+                        speedY: 0.012 + Math.random() * 0.016,
+                        driftX: (Math.random() - 0.5) * 0.012,
+                        rotSpeedX: (Math.random() - 0.5) * 0.012,
+                        rotSpeedY: (Math.random() - 0.5) * 0.014,
+                        phase: Math.random() * Math.PI * 2
+                    });
+                }
+
+                // 2. توليد 10 ملفات شركات ثلاثية الأبعاد (Folders)
+                for (let i = 0; i < 10; i++) {
+                    const folder = create3DFolder(i % 2 === 0);
+                    const scale = 0.72 + Math.random() * 0.35;
+                    folder.scale.set(scale, scale, scale);
+                    folder.position.set(
+                        (Math.random() - 0.5) * 36,
+                        (Math.random() - 0.5) * 24,
+                        (Math.random() - 0.5) * 14 - 5
+                    );
+                    folder.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+                    scene.add(folder);
+                    flyingItems.push({
+                        mesh: folder,
+                        speedY: 0.009 + Math.random() * 0.012,
+                        driftX: (Math.random() - 0.5) * 0.009,
+                        rotSpeedX: (Math.random() - 0.5) * 0.008,
+                        rotSpeedY: (Math.random() - 0.5) * 0.01,
+                        phase: Math.random() * Math.PI * 2
+                    });
+                }
+
+                // 3. توليد 18 ورقة نقدية وعملات ذهبية تتطاير في المشهد
+                for (let i = 0; i < 18; i++) {
+                    const isCoin = i % 3 === 0;
+                    const moneyMesh = isCoin
+                        ? new THREE.Mesh(new THREE.CylinderGeometry(0.48, 0.48, 0.09, 24), coinGoldMat)
+                        : new THREE.Mesh(new THREE.PlaneGeometry(1.75, 0.85), moneyMat);
+
+                    moneyMesh.position.set(
+                        (Math.random() - 0.5) * 38,
+                        (Math.random() - 0.5) * 26,
+                        (Math.random() - 0.5) * 15 - 3
+                    );
+                    moneyMesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+                    scene.add(moneyMesh);
+                    flyingItems.push({
+                        mesh: moneyMesh,
+                        speedY: 0.014 + Math.random() * 0.018,
+                        driftX: (Math.random() - 0.5) * 0.015,
+                        rotSpeedX: (Math.random() - 0.5) * 0.018,
+                        rotSpeedY: (Math.random() - 0.5) * 0.02,
+                        phase: Math.random() * Math.PI * 2
+                    });
+                }
+
+                // استجابة لطيفة لحركة التمرير والماوس
+                let scrollOffset = 0;
+                window.addEventListener('scroll', () => {
+                    scrollOffset = window.scrollY * 0.004;
+                }, { passive: true });
+
+                const clock = new THREE.Clock();
+
+                function animate() {
+                    requestAnimationFrame(animate);
+                    const t = clock.getElapsedTime();
+
+                    flyingItems.forEach(item => {
+                        item.mesh.rotation.x += item.rotSpeedX;
+                        item.mesh.rotation.y += item.rotSpeedY;
+
+                        // طفو تصاعدي وتمايل جانبي يحاكي تطاير الأوراق والأموال في الهواء
+                        item.mesh.position.y += item.speedY;
+                        item.mesh.position.x += Math.sin(t * 0.8 + item.phase) * 0.012 + item.driftX;
+
+                        // إعادة تدوير العنصر بسلاسة عند خروجه من أعلى الشاشة
+                        if (item.mesh.position.y > 15) {
+                            item.mesh.position.y = -15;
+                            item.mesh.position.x = (Math.random() - 0.5) * 36;
+                        }
+                    });
+
+                    camera.position.y = -scrollOffset * 0.35;
+                    renderer.render(scene, camera);
+                }
+
+                window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+
+                animate();
+            } catch (err) {
+                console.error('3D Scene error:', err);
+            }
+        }
+
+        window.addEventListener('load', init3DFlyingBusinessScene);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // التحكم في قائمة الجوال
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                });
+            }
+
+            // شريط التمرير العلوي
+            const progressBar = document.getElementById('scroll-progress-bar');
+            window.addEventListener('scroll', () => {
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if (docHeight > 0 && progressBar) {
+                    const pct = Math.min(100, Math.max(0, (window.scrollY / docHeight) * 100));
+                    progressBar.style.width = pct + '%';
+                }
+            }, { passive: true });
+
+            // ظهور العناصر التدريجي أثناء التمرير
+            const revealItems = document.querySelectorAll('.reveal-item');
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealItems.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
